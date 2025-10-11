@@ -3,3 +3,5 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home1/exciteconstruct/public_html/
     - /bin/cp -R * $DEPLOYPATH
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp style.css $DEPLOYPATH
