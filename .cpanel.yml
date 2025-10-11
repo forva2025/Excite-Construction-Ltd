@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home1/exciteconstruct/public_html
+    - export DEPLOYPATH=/home1/exciteconstruct/public_html/
     - echo "Starting deployment to $DEPLOYPATH"
     - /bin/cp index.html $DEPLOYPATH
     - /bin/cp style.css $DEPLOYPATH
