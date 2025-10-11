@@ -2,6 +2,17 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home1/exciteconstruct/public_html
+    - echo "Starting deployment to $DEPLOYPATH"
     - /bin/cp index.html $DEPLOYPATH
     - /bin/cp style.css $DEPLOYPATH
-    - /bin/cp -r images $DEPLOYPATH
+    - /bin/cp app.js $DEPLOYPATH
+    - /bin/cp "excite black.png" $DEPLOYPATH
+    - /bin/cp "excite yello bg.png" $DEPLOYPATH
+    - /bin/cp "excite logo.jfif" $DEPLOYPATH
+    - /bin/cp "excite construction limited final logo.pdf" $DEPLOYPATH
+    - /bin/cp "bagnrd.jpg" $DEPLOYPATH
+    - /bin/cp robots.txt $DEPLOYPATH
+    - /bin/cp sitemap.xml $DEPLOYPATH
+    - /bin/cp LICENSE $DEPLOYPATH
+    - /bin/cp README.md $DEPLOYPATH
+    - echo "Deployment completed successfully"
