@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initAOS();
     initSmoothScrolling();
     initServiceCards();
+    initThemeToggle();
 });
 
 // Navigation functionality
@@ -711,5 +712,71 @@ function throttle(func, wait, immediate) {
 const throttledScrollHandler = throttle(function() {
     // Existing scroll handlers
 }, 16); // ~60fps
+
+// Theme Toggle functionality
+function initThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const body = document.body;
+    
+    console.log('Initializing theme toggle...');
+    console.log('Theme toggle element:', themeToggle);
+    console.log('Theme icon element:', themeIcon);
+    
+    // Check for saved theme preference or default to dark mode
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    console.log('Current theme from localStorage:', currentTheme);
+    
+    // Set initial theme
+    body.setAttribute('data-theme', currentTheme);
+    console.log('Body data-theme set to:', body.getAttribute('data-theme'));
+    
+    // Update icon based on current theme
+    updateThemeIcon(currentTheme);
+    
+    if (themeToggle) {
+        console.log('Adding click event listener to theme toggle');
+        themeToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log('Theme toggle clicked!');
+            
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            console.log('Switching from', currentTheme, 'to', newTheme);
+            
+            // Update theme
+            body.setAttribute('data-theme', newTheme);
+            console.log('Body data-theme updated to:', body.getAttribute('data-theme'));
+            
+            // Save to localStorage
+            localStorage.setItem('theme', newTheme);
+            console.log('Theme saved to localStorage:', newTheme);
+            
+            // Update icon
+            updateThemeIcon(newTheme);
+        });
+    } else {
+        console.error('Theme toggle button not found!');
+    }
+}
+
+function updateThemeIcon(theme) {
+    const themeIcon = document.getElementById('theme-icon');
+    console.log('Updating theme icon for theme:', theme);
+    console.log('Theme icon element:', themeIcon);
+    
+    if (themeIcon) {
+        if (theme === 'dark') {
+            themeIcon.className = 'fas fa-moon';
+            console.log('Icon set to moon (dark mode)');
+        } else {
+            themeIcon.className = 'fas fa-sun';
+            console.log('Icon set to sun (light mode)');
+        }
+    } else {
+        console.error('Theme icon element not found!');
+    }
+}
 
 window.addEventListener('scroll', throttledScrollHandler);

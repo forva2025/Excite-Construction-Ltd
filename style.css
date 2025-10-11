@@ -98,6 +98,113 @@
   --font-weight-semibold: 550;
   --font-weight-bold: 600;
   --line-height-tight: 1.2;
+}
+
+/* Dark Mode Variables (Default) */
+[data-theme="dark"] {
+  --color-background: #000000;
+  --color-surface: #1a1a1a;
+  --color-text: #ffffff;
+  --color-text-secondary: #cccccc;
+  --color-primary: #FFD700;
+  --color-primary-hover: #FFE55C;
+  --color-primary-active: #E6C200;
+  --color-secondary: rgba(94, 82, 64, 0.12);
+  --color-secondary-hover: rgba(94, 82, 64, 0.2);
+  --color-secondary-active: rgba(94, 82, 64, 0.25);
+  --color-border: rgba(94, 82, 64, 0.2);
+  --color-btn-primary-text: #000000;
+  --color-card-border: rgba(94, 82, 64, 0.12);
+  --color-card-border-inner: rgba(94, 82, 64, 0.12);
+  --color-error: #ff4444;
+  --color-success: #33d4a0;
+  --color-warning: #ffa726;
+  --color-info: #42a5f5;
+  --color-focus-ring: rgba(33, 128, 141, 0.4);
+  --color-select-caret: rgba(255, 255, 255, 0.8);
+}
+
+/* Light Mode Variables */
+[data-theme="light"] {
+  --color-background: rgba(255, 255, 255, 0.6);
+  --color-surface: rgba(248, 249, 250, 0.8);
+  --color-text: #212529;
+  --color-text-secondary: #6c757d;
+  --color-primary: #FFD700;
+  --color-primary-hover: #FFE55C;
+  --color-primary-active: #E6C200;
+  --color-secondary: rgba(94, 82, 64, 0.1);
+  --color-secondary-hover: rgba(94, 82, 64, 0.15);
+  --color-secondary-active: rgba(94, 82, 64, 0.2);
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-btn-primary-text: #000000;
+  --color-card-border: rgba(0, 0, 0, 0.1);
+  --color-card-border-inner: rgba(0, 0, 0, 0.05);
+  --color-error: #dc3545;
+  --color-success: #28a745;
+  --color-warning: #ffc107;
+  --color-info: #17a2b8;
+  --color-focus-ring: rgba(33, 128, 141, 0.4);
+  --color-select-caret: rgba(0, 0, 0, 0.8);
+}
+
+/* Light Mode Theme Toggle Styles */
+[data-theme="light"] .theme-toggle {
+  border-color: var(--color-text);
+  color: var(--color-text);
+}
+
+[data-theme="light"] .theme-toggle:hover {
+  background: var(--color-text);
+  color: var(--color-background);
+}
+
+[data-theme="light"] .nav__cta-btn {
+  color: var(--color-text);
+  border-color: var(--color-text);
+}
+
+[data-theme="light"] .nav__cta-btn:hover {
+  background: var(--color-text);
+  color: var(--color-background);
+}
+
+/* Body background for themes */
+body {
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] body {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+[data-theme="light"] body {
+  background-color: rgba(255, 255, 255, 0.6);
+  background-image: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%),
+    linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.1) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  color: #212529;
+}
+
+/* Ensure content has proper contrast in light mode */
+[data-theme="light"] .section {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  padding: 2rem;
+}
+
+[data-theme="light"] .container {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  border-radius: 8px;
+}
+
+:root {
   --line-height-normal: 1.5;
   --letter-spacing-tight: -0.01em;
 
@@ -995,6 +1102,49 @@ p {
   color: var(--color-black);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+.theme-toggle {
+  background: transparent;
+  border: 2px solid var(--color-white);
+  color: var(--color-white);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  margin-left: 1rem;
+}
+
+.theme-toggle:hover {
+  background: var(--color-white);
+  color: var(--color-black);
+  transform: scale(1.1);
+}
+
+.theme-toggle i {
+  font-size: 1rem;
+}
+
+/* Debug styles for theme toggle */
+.theme-toggle {
+  position: relative;
+  z-index: 1000;
+}
+
+.theme-toggle:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Ensure theme toggle is visible */
+.theme-toggle {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* Back to top button */
@@ -2061,6 +2211,17 @@ p {
   
   .nav__cta-btn {
     display: none;
+  }
+  
+  .theme-toggle {
+    display: none;
+  }
+  
+  /* Show theme toggle on larger screens */
+  @media screen and (min-width: 769px) {
+    .theme-toggle {
+      display: flex !important;
+    }
   }
   
   .hero__buttons {
