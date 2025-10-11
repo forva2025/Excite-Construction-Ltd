@@ -3,6 +3,11 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home1/exciteconstruct/public_html/
     - echo "Starting deployment to $DEPLOYPATH"
+    - echo "Testing deployment path..."
+    - ls -la $DEPLOYPATH
+    - echo "Current directory contents:"
+    - pwd
+    - ls -la
     - /bin/cp index.html $DEPLOYPATH
     - /bin/cp style.css $DEPLOYPATH
     - /bin/cp app.js $DEPLOYPATH
