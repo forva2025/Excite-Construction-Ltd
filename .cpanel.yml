@@ -6,4 +6,13 @@ deployment:
     - /bin/cp index.html $DEPLOYPATH
     - /bin/cp style.css $DEPLOYPATH
     - /bin/cp app.js $DEPLOYPATH
-    - echo "Core files deployed successfully"
+    - /bin/cp "excite black.jfif" $DEPLOYPATH
+    - /bin/cp "excite yello bg.png" $DEPLOYPATH
+    - /bin/cp "excite logo.jfif" $DEPLOYPATH
+    - /bin/cp "excite construction limited final logo.pdf" $DEPLOYPATH
+    - /bin/cp "bagnrd.jpg" $DEPLOYPATH
+    - /bin/cp robots.txt $DEPLOYPATH
+    - /bin/cp sitemap.xml $DEPLOYPATH
+    - /bin/cp LICENSE $DEPLOYPATH
+    - /bin/cp README.md $DEPLOYPATH
+    - echo "Deployment completed successfully"
