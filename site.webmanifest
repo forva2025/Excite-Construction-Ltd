@@ -1,0 +1,22 @@
+{
+    "name": "Excite Construction Limited",
+    "short_name": "Excite Construction",
+    "description": "Leading construction company in Uganda specializing in residential, commercial, and institutional building projects.",
+    "icons": [
+        {
+            "src": "excite_black-removebg-preview.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "excite_black-removebg-preview.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#FF6B35",
+    "background_color": "#1a1a1a",
+    "display": "standalone",
+    "start_url": "/",
+    "scope": "/"
+}

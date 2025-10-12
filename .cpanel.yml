@@ -15,9 +15,12 @@ deployment:
     - /bin/cp "excite yello bg.png" $DEPLOYPATH
     - /bin/cp "excite logo.jfif" $DEPLOYPATH
     - /bin/cp "excite construction limited final logo.pdf" $DEPLOYPATH
+    - /bin/cp "excite_black-removebg-preview.png" $DEPLOYPATH
+    - /bin/cp "excite white  bg.png" $DEPLOYPATH
     - /bin/cp "bagnrd.jpg" $DEPLOYPATH
     - /bin/cp robots.txt $DEPLOYPATH
     - /bin/cp sitemap.xml $DEPLOYPATH
+    - /bin/cp site.webmanifest $DEPLOYPATH
     - /bin/cp LICENSE $DEPLOYPATH
     - /bin/cp README.md $DEPLOYPATH
     - echo "Creating error pages..."
