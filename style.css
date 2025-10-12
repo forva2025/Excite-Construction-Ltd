@@ -1171,13 +1171,15 @@ p {
 }
 
 .hero__scroll {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-left: 420px;
   color: var(--secondary-white);
   font-size: 1.5rem;
   animation: bounce 2s infinite;
+  display: block;
+  width: 100%;
 }
 
 /* Animations */
