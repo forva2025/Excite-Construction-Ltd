@@ -2582,6 +2582,17 @@ p {
   }
 }
 
+/* Light mode hamburger menu icon for mobile devices */
+@media screen and (max-width: 968px) {
+  [data-theme="light"] .nav__toggle {
+    color: var(--light-text) !important;
+  }
+  
+  [data-theme="light"] .nav__toggle i {
+    color: var(--light-text) !important;
+  }
+}
+
 [data-aos="zoom-in"] {
   transform: scale(0.8);
 }
