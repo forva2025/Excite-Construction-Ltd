@@ -944,9 +944,16 @@ p {
 }
 
 .nav__logo-img {
-  height: 50px;
+  height: 75px;
   width: auto;
   object-fit: contain;
+  filter: brightness(1.4) contrast(1.3);
+  transition: all 0.3s ease;
+}
+
+.nav__logo-img:hover {
+  filter: brightness(1.6) contrast(1.4);
+  transform: scale(1.08);
 }
 
 .nav__list {
@@ -1144,14 +1151,14 @@ p {
 }
 
 .hero__title {
-  color: var(--secondary-white);
+  color: #FFFFFF;
   margin-bottom: 1.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   animation: slideInFromTop 0.8s ease-out;
 }
 
 .hero__description {
-  color: var(--secondary-white);
+  color: #FFFFFF;
   font-size: 1.25rem;
   margin-bottom: 2.5rem;
   opacity: 0.95;
@@ -2127,6 +2134,19 @@ p {
     display: none;
   }
   
+  .nav__logo-img {
+    height: 55px;
+    filter: brightness(1.3) contrast(1.15);
+  }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 480px) {
+  .nav__logo-img {
+    height: 50px;
+    filter: brightness(1.4) contrast(1.2);
+  }
+  
   
   .hero__buttons {
     flex-direction: column;
@@ -2388,7 +2408,11 @@ p {
 [data-theme="light"] .testimonial__text,
 [data-theme="light"] .form__label,
 [data-theme="light"] .hero__description {
-  color: var(--light-text) !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="light"] .hero__title {
+  color: #FFFFFF !important;
 }
 
 /* Services section specific overrides for white text on dark background */

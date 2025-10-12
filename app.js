@@ -757,6 +757,7 @@ function initThemeToggle() {
     // Apply saved theme
     body.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
+    updateLogo(savedTheme);
     
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
@@ -769,8 +770,9 @@ function initThemeToggle() {
             // Save to localStorage
             localStorage.setItem('theme', newTheme);
             
-            // Update icon
+            // Update icon and logo
             updateThemeIcon(newTheme);
+            updateLogo(newTheme);
         });
     }
 }
@@ -782,6 +784,17 @@ function updateThemeIcon(theme) {
             themeIcon.className = 'fas fa-moon theme-icon';
         } else {
             themeIcon.className = 'fas fa-sun theme-icon';
+        }
+    }
+}
+
+function updateLogo(theme) {
+    const logoImg = document.querySelector('.nav__logo-img');
+    if (logoImg) {
+        if (theme === 'light') {
+            logoImg.src = 'excite white  bg.png';
+        } else {
+            logoImg.src = 'excite_black-removebg-preview.png';
         }
     }
 }
