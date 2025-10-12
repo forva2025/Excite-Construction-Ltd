@@ -43,7 +43,7 @@
   --color-bg-7: rgba(236, 72, 153, 0.08); /* Light pink */
   --color-bg-8: rgba(6, 182, 212, 0.08); /* Light cyan */
 
-  /* Semantic Color Tokens (Light Mode) */
+  /* Semantic Color Tokens (Dark Mode - Default) */
   --color-background: #000000;
   --color-surface: #1a1a1a;
   --color-text: var(--color-slate-900);
@@ -64,6 +64,18 @@
   --color-info: var(--color-slate-500);
   --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
   --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+
+  /* Light Mode Color Overrides */
+  --light-bg: #ffffff;
+  --light-surface: #f8f9fa;
+  --light-text: #1a1a1a;
+  --light-text-secondary: #6c757d;
+  --light-primary: #ffc107;
+  --light-primary-hover: #e0a800;
+  --light-primary-active: #d39e00;
+  --light-border: #dee2e6;
+  --light-card-bg: #ffffff;
+  --light-card-border: #e9ecef;
 
   /* Common style patterns */
   --focus-ring: 0 0 0 3px var(--color-focus-ring);
@@ -2251,6 +2263,321 @@ p {
 
 [data-aos="fade-left"].aos-animate {
   transform: translateX(0);
+}
+
+/* ===== LIGHT MODE THEME ===== */
+[data-theme="light"] {
+  --color-background: var(--light-bg);
+  --color-surface: var(--light-surface);
+  --color-text: var(--light-text);
+  --color-text-secondary: var(--light-text-secondary);
+  --color-primary: var(--light-primary);
+  --color-primary-hover: var(--light-primary-hover);
+  --color-primary-active: var(--light-primary-active);
+  --color-border: var(--light-border);
+  --color-card-border: var(--light-card-border);
+  --color-card-border-inner: var(--light-card-border);
+  --color-btn-primary-text: var(--light-text);
+  --color-focus-ring: rgba(255, 193, 7, 0.4);
+}
+
+[data-theme="light"] body {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+[data-theme="light"] .header {
+  background-color: var(--light-bg);
+  border-bottom: 1px solid var(--light-border);
+}
+
+[data-theme="light"] .nav__link {
+  color: var(--light-text);
+}
+
+[data-theme="light"] .nav__link:hover {
+  color: var(--light-primary);
+}
+
+[data-theme="light"] .nav__cta-btn {
+  color: var(--light-text);
+  border-color: var(--light-text);
+}
+
+[data-theme="light"] .nav__cta-btn:hover {
+  background-color: var(--light-text);
+  color: var(--light-bg);
+}
+
+[data-theme="light"] .section {
+  background-color: var(--light-bg);
+}
+
+[data-theme="light"] .section:nth-child(even) {
+  background-color: var(--light-surface);
+}
+
+[data-theme="light"] .card {
+  background-color: var(--light-card-bg);
+  border-color: var(--light-card-border);
+}
+
+[data-theme="light"] .card__title {
+  color: var(--light-text);
+}
+
+[data-theme="light"] .card__description {
+  color: var(--light-text);
+}
+
+[data-theme="light"] .btn--primary {
+  background-color: var(--light-primary);
+  color: var(--light-text);
+}
+
+[data-theme="light"] .btn--primary:hover {
+  background-color: var(--light-primary-hover);
+}
+
+[data-theme="light"] .btn--outline {
+  border-color: var(--light-primary);
+  color: var(--light-primary);
+}
+
+[data-theme="light"] .btn--outline:hover {
+  background-color: var(--light-primary);
+  color: var(--light-text);
+}
+
+[data-theme="light"] .footer {
+  background-color: var(--light-surface);
+  border-top: 1px solid var(--light-border);
+}
+
+[data-theme="light"] .footer__title,
+[data-theme="light"] .footer__subtitle {
+  color: var(--light-text);
+}
+
+[data-theme="light"] .footer__link {
+  color: var(--light-text);
+}
+
+[data-theme="light"] .footer__link:hover {
+  color: var(--light-primary);
+}
+
+[data-theme="light"] .footer__description {
+  color: var(--light-text);
+}
+
+[data-theme="light"] .footer__contact p {
+  color: var(--light-text);
+}
+
+/* Additional light mode text overrides for all grey text */
+[data-theme="light"] p,
+[data-theme="light"] .text-secondary,
+[data-theme="light"] .description,
+[data-theme="light"] .subtitle,
+[data-theme="light"] .contact__details p,
+[data-theme="light"] .project__description,
+[data-theme="light"] .team__description,
+[data-theme="light"] .testimonial__text,
+[data-theme="light"] .form__label,
+[data-theme="light"] .hero__description {
+  color: var(--light-text) !important;
+}
+
+/* Services section specific overrides for white text on dark background */
+[data-theme="light"] .services .service__description,
+[data-theme="light"] .services .card__description,
+[data-theme="light"] .services .service__title,
+[data-theme="light"] .services .card__title,
+[data-theme="light"] .services p,
+[data-theme="light"] .services .text-secondary,
+[data-theme="light"] .services .description {
+  color: var(--color-white) !important;
+}
+
+/* Services section description text override for black text */
+[data-theme="light"] .services .section__description,
+[data-theme="light"] .services .services__description {
+  color: var(--light-text) !important;
+}
+
+/* About section specific overrides for black text on light background */
+[data-theme="light"] .about .about__title,
+[data-theme="light"] .about .about__description,
+[data-theme="light"] .about .mission h3,
+[data-theme="light"] .about .mission p,
+[data-theme="light"] .about .vision h3,
+[data-theme="light"] .about .vision p,
+[data-theme="light"] .about .mission-vision h3,
+[data-theme="light"] .about .mission-vision p,
+[data-theme="light"] .about .card__title,
+[data-theme="light"] .about .card__description,
+[data-theme="light"] .about p,
+[data-theme="light"] .about h1,
+[data-theme="light"] .about h2,
+[data-theme="light"] .about h3,
+[data-theme="light"] .about h4 {
+  color: var(--light-text) !important;
+}
+
+/* Specific text elements in about section that need to be black */
+[data-theme="light"] .about .about__year,
+[data-theme="light"] .about .about__location,
+[data-theme="light"] .about .about__specialty,
+[data-theme="light"] .about .about__info,
+[data-theme="light"] .about .about__details,
+[data-theme="light"] .about .about__meta,
+[data-theme="light"] .about .about__tag,
+[data-theme="light"] .about .about__badge {
+  color: var(--light-text) !important;
+}
+
+/* Featured Projects section - turn grey text to white on dark backgrounds */
+[data-theme="light"] .projects .project__card,
+[data-theme="light"] .projects .project__title,
+[data-theme="light"] .projects .project__location,
+[data-theme="light"] .projects .project__description,
+[data-theme="light"] .projects .project__client,
+[data-theme="light"] .projects .project__cost,
+[data-theme="light"] .projects .project__status,
+[data-theme="light"] .projects .project__info,
+[data-theme="light"] .projects .project__details,
+[data-theme="light"] .projects .project__meta,
+[data-theme="light"] .projects .project__tag,
+[data-theme="light"] .projects .project__badge,
+[data-theme="light"] .projects p,
+[data-theme="light"] .projects .text-secondary,
+[data-theme="light"] .projects .description,
+[data-theme="light"] .projects .subtitle {
+  color: var(--color-white) !important;
+}
+
+/* Our Team section - turn grey text to white on dark backgrounds */
+[data-theme="light"] .team .team__card,
+[data-theme="light"] .team .team__name,
+[data-theme="light"] .team .team__position,
+[data-theme="light"] .team .team__description,
+[data-theme="light"] .team .team__info,
+[data-theme="light"] .team .team__details,
+[data-theme="light"] .team .team__meta,
+[data-theme="light"] .team .team__tag,
+[data-theme="light"] .team .team__badge,
+[data-theme="light"] .team p,
+[data-theme="light"] .team .text-secondary,
+[data-theme="light"] .team .description,
+[data-theme="light"] .team .subtitle {
+  color: var(--color-white) !important;
+}
+
+/* Team section description text override for black text */
+[data-theme="light"] .team .section__description,
+[data-theme="light"] .team .team__description {
+  color: var(--light-text) !important;
+}
+
+/* Client Testimonials section - turn grey text to white on dark backgrounds */
+[data-theme="light"] .testimonials .testimonial__card,
+[data-theme="light"] .testimonials .testimonial__text,
+[data-theme="light"] .testimonials .testimonial__name,
+[data-theme="light"] .testimonials .testimonial__position,
+[data-theme="light"] .testimonials .testimonial__company,
+[data-theme="light"] .testimonials .testimonial__info,
+[data-theme="light"] .testimonials .testimonial__details,
+[data-theme="light"] .testimonials .testimonial__meta,
+[data-theme="light"] .testimonials .testimonial__tag,
+[data-theme="light"] .testimonials .testimonial__badge,
+[data-theme="light"] .testimonials p,
+[data-theme="light"] .testimonials .text-secondary,
+[data-theme="light"] .testimonials .description,
+[data-theme="light"] .testimonials .subtitle {
+  color: var(--color-white) !important;
+}
+
+/* Testimonials section description text override for black text */
+[data-theme="light"] .testimonials .section__description,
+[data-theme="light"] .testimonials .testimonials__description {
+  color: var(--light-text) !important;
+}
+
+/* Get In Touch section - turn all form text to white on dark backgrounds */
+[data-theme="light"] .contact .form__label,
+[data-theme="light"] .contact .form-control,
+[data-theme="light"] .contact .form__group,
+[data-theme="light"] .contact .form__input,
+[data-theme="light"] .contact .form__textarea,
+[data-theme="light"] .contact .form__select,
+[data-theme="light"] .contact input,
+[data-theme="light"] .contact textarea,
+[data-theme="light"] .contact select,
+[data-theme="light"] .contact .btn,
+[data-theme="light"] .contact .contact__form,
+[data-theme="light"] .contact .contact__form p,
+[data-theme="light"] .contact .contact__form label,
+[data-theme="light"] .contact .contact__form input::placeholder,
+[data-theme="light"] .contact .contact__form textarea::placeholder {
+  color: var(--color-white) !important;
+}
+
+/* ===== THEME TOGGLE BUTTON ===== */
+.theme-toggle {
+  background: transparent;
+  border: 2px solid var(--color-white);
+  color: var(--color-white);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle:hover {
+  background: var(--color-white);
+  color: var(--color-black);
+  transform: scale(1.05);
+}
+
+.theme-toggle .theme-icon {
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover .theme-icon {
+  transform: rotate(180deg);
+}
+
+/* Light mode toggle button styles */
+[data-theme="light"] .theme-toggle {
+  border-color: var(--light-text);
+  color: var(--light-text);
+}
+
+[data-theme="light"] .theme-toggle:hover {
+  background: var(--light-text);
+  color: var(--light-bg);
+}
+
+/* Mobile responsiveness for toggle button */
+@media screen and (max-width: 968px) {
+  .theme-toggle {
+    margin-left: 0.5rem;
+    width: 36px;
+    height: 36px;
+  }
+  
+  .theme-toggle .theme-icon {
+    font-size: 1rem;
+  }
 }
 
 [data-aos="zoom-in"] {
