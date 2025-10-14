@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initServiceCards();
     initProjectsToggle();
     initThemeToggle();
+    initLazyLoading();
+    initPerformanceOptimizations();
 });
 
 // Navigation functionality
@@ -797,4 +799,63 @@ function updateLogo(theme) {
             logoImg.src = 'excite_black-removebg-preview.png';
         }
     }
+}
+
+// Lazy loading functionality
+function initLazyLoading() {
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        lazyImages.forEach(img => {
+            imageObserver.observe(img);
+        });
+    } else {
+        // Fallback for older browsers
+        lazyImages.forEach(img => {
+            img.classList.add('loaded');
+        });
+    }
+}
+
+// Performance optimizations
+function initPerformanceOptimizations() {
+    // Debounce scroll events
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+        if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
+        }
+        scrollTimeout = setTimeout(() => {
+            // Scroll-based functionality here
+        }, 10);
+    });
+
+    // Optimize animations
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (prefersReducedMotion.matches) {
+        document.documentElement.style.setProperty('--transition-smooth', 'none');
+        document.documentElement.style.setProperty('--transition-fast', 'none');
+        document.documentElement.style.setProperty('--transition-slow', 'none');
+    }
+
+    // Preload critical images on hover
+    const projectCards = document.querySelectorAll('.project__card');
+    projectCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            const img = card.querySelector('.project__img');
+            if (img && !img.classList.contains('loaded')) {
+                img.classList.add('loaded');
+            }
+        });
+    });
 }

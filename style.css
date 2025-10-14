@@ -1,3 +1,47 @@
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Lazy loading styles */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+/* Optimize project images */
+.project__img {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project__img:hover {
+  transform: scale(1.05);
+}
+
+/* Critical CSS for above-the-fold content */
+.hero {
+  will-change: transform;
+}
+
+.nav {
+  will-change: transform;
+}
+
 :root {
   /* Primitive Color Tokens */
   --color-white: rgba(255, 255, 255, 1);
@@ -2011,6 +2055,11 @@ p {
   font-size: 1.1rem;
 }
 
+/* Dark mode override for footer sub-headings */
+.footer__subtitle {
+  color: #FFFFFF;
+}
+
 .footer__description {
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 1.5rem;
@@ -2422,7 +2471,7 @@ p {
 }
 
 [data-theme="light"] .footer__contact p {
-  color: var(--light-text);
+  color: #000000;
 }
 
 /* Additional light mode text overrides for all grey text */
