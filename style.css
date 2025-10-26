@@ -2561,9 +2561,7 @@ p {
 }
 
 /* Services section specific overrides for white text on dark background */
-[data-theme="light"] .services .service__description,
 [data-theme="light"] .services .card__description,
-[data-theme="light"] .services .service__title,
 [data-theme="light"] .services .card__title,
 [data-theme="light"] .services p,
 [data-theme="light"] .services .text-secondary,
@@ -2575,6 +2573,119 @@ p {
 [data-theme="light"] .services .section__description,
 [data-theme="light"] .services .services__description {
   color: var(--light-text) !important;
+}
+
+/* Services cards styling in light mode - match certifications */
+[data-theme="light"] .service__card {
+  background: var(--light-card-bg);
+  border: 2px solid var(--light-card-border);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="light"] .service__card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--light-primary) 0%, var(--light-primary-hover) 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+[data-theme="light"] .service__card:hover {
+  border-color: var(--light-primary);
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-8px);
+}
+
+[data-theme="light"] .service__card:hover::after {
+  transform: scaleX(1);
+}
+
+/* Service card text colors in light mode */
+[data-theme="light"] .service__title {
+  color: var(--light-primary) !important;
+  font-weight: 700;
+}
+
+[data-theme="light"] .service__description {
+  color: #000000 !important;
+  font-weight: 400;
+}
+
+[data-theme="light"] .service__card p {
+  color: #000000 !important;
+}
+
+[data-theme="light"] .service__card * {
+  color: #000000 !important;
+}
+
+[data-theme="light"] .service__card .service__title {
+  color: var(--light-primary) !important;
+}
+
+/* About section card styling in light mode - match certifications */
+[data-theme="light"] .mission,
+[data-theme="light"] .vision,
+[data-theme="light"] .about-section {
+  background: var(--light-card-bg);
+  border: 2px solid var(--light-card-border);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="light"] .stat__item {
+  background: var(--light-card-bg);
+  border: 2px solid var(--light-card-border);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="light"] .stat__item:hover {
+  border-color: var(--light-primary);
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-8px);
+}
+
+/* About section title colors in light mode */
+[data-theme="light"] .mission-title,
+[data-theme="light"] .vision-title,
+[data-theme="light"] .about-section-title {
+  color: var(--light-primary) !important;
+  font-weight: 700;
+}
+
+/* About section text colors in light mode */
+[data-theme="light"] .mission-text,
+[data-theme="light"] .vision-text,
+[data-theme="light"] .about__text {
+  color: #000000 !important;
+}
+
+[data-theme="light"] .stat__number {
+  color: var(--light-primary) !important;
+}
+
+[data-theme="light"] .stat__label {
+  color: #000000 !important;
 }
 
 /* About section specific overrides for black text on light background */
@@ -2609,19 +2720,11 @@ p {
 }
 
 /* Featured Projects section - turn grey text to white on dark backgrounds */
-[data-theme="light"] .projects .project__card,
-[data-theme="light"] .projects .project__title,
-[data-theme="light"] .projects .project__location,
-[data-theme="light"] .projects .project__description,
-[data-theme="light"] .projects .project__client,
 [data-theme="light"] .projects .project__cost,
 [data-theme="light"] .projects .project__status,
 [data-theme="light"] .projects .project__info,
-[data-theme="light"] .projects .project__details,
-[data-theme="light"] .projects .project__meta,
 [data-theme="light"] .projects .project__tag,
 [data-theme="light"] .projects .project__badge,
-[data-theme="light"] .projects p,
 [data-theme="light"] .projects .text-secondary,
 [data-theme="light"] .projects .description,
 [data-theme="light"] .projects .subtitle {
@@ -2633,21 +2736,134 @@ p {
   color: #000000 !important;
 }
 
-/* Our Team section - turn grey text to white on dark backgrounds */
-[data-theme="light"] .team .team__card,
-[data-theme="light"] .team .team__name,
-[data-theme="light"] .team .team__position,
-[data-theme="light"] .team .team__description,
-[data-theme="light"] .team .team__info,
-[data-theme="light"] .team .team__details,
-[data-theme="light"] .team .team__meta,
-[data-theme="light"] .team .team__tag,
-[data-theme="light"] .team .team__badge,
-[data-theme="light"] .team p,
-[data-theme="light"] .team .text-secondary,
-[data-theme="light"] .team .description,
-[data-theme="light"] .team .subtitle {
-  color: var(--color-white) !important;
+/* Project cards styling in light mode - match certifications */
+[data-theme="light"] .project__card {
+  background: var(--light-card-bg);
+  border: 2px solid var(--light-card-border);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="light"] .project__card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--light-primary) 0%, var(--light-primary-hover) 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+[data-theme="light"] .project__card:hover {
+  border-color: var(--light-primary);
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-8px);
+}
+
+[data-theme="light"] .project__card:hover::after {
+  transform: scaleX(1);
+}
+
+/* Project card text colors in light mode */
+[data-theme="light"] .project__title {
+  color: var(--light-primary) !important;
+  font-weight: 700;
+}
+
+[data-theme="light"] .project__description,
+[data-theme="light"] .project__location,
+[data-theme="light"] .project__client,
+[data-theme="light"] .project__details {
+  color: #000000 !important;
+  font-weight: 400;
+}
+
+[data-theme="light"] .project__card p {
+  color: #000000 !important;
+}
+
+[data-theme="light"] .project__card * {
+  color: #000000 !important;
+}
+
+[data-theme="light"] .project__card .project__title {
+  color: var(--light-primary) !important;
+}
+
+/* Status text in project cards to be black in light mode */
+[data-theme="light"] .project__status,
+[data-theme="light"] .status,
+[data-theme="light"] .status--success,
+[data-theme="light"] .status--pending,
+[data-theme="light"] .status--error,
+[data-theme="light"] .status--warning,
+[data-theme="light"] .status--info {
+  color: #000000 !important;
+}
+
+/* Team card styling in light mode - match certifications */
+[data-theme="light"] .team__card {
+  background: var(--light-card-bg);
+  border: 2px solid var(--light-card-border);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="light"] .team__card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--light-primary) 0%, var(--light-primary-hover) 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+[data-theme="light"] .team__card:hover {
+  border-color: var(--light-primary);
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-8px);
+}
+
+[data-theme="light"] .team__card:hover::after {
+  transform: scaleX(1);
+}
+
+/* Team card text colors in light mode */
+[data-theme="light"] .team__name {
+  color: var(--light-primary) !important;
+  font-weight: 700;
+}
+
+[data-theme="light"] .team__position,
+[data-theme="light"] .team__experience,
+[data-theme="light"] .team__bio {
+  color: #000000 !important;
+}
+
+[data-theme="light"] .team__card p,
+[data-theme="light"] .team__card * {
+  color: #000000 !important;
+}
+
+[data-theme="light"] .team__card .team__name {
+  color: var(--light-primary) !important;
 }
 
 /* Team section description text override for black text */
@@ -2656,22 +2872,60 @@ p {
   color: var(--light-text) !important;
 }
 
-/* Client Testimonials section - turn grey text to white on dark backgrounds */
-[data-theme="light"] .testimonials .testimonial__card,
-[data-theme="light"] .testimonials .testimonial__text,
-[data-theme="light"] .testimonials .testimonial__name,
-[data-theme="light"] .testimonials .testimonial__position,
-[data-theme="light"] .testimonials .testimonial__company,
-[data-theme="light"] .testimonials .testimonial__info,
-[data-theme="light"] .testimonials .testimonial__details,
-[data-theme="light"] .testimonials .testimonial__meta,
-[data-theme="light"] .testimonials .testimonial__tag,
-[data-theme="light"] .testimonials .testimonial__badge,
-[data-theme="light"] .testimonials p,
-[data-theme="light"] .testimonials .text-secondary,
-[data-theme="light"] .testimonials .description,
-[data-theme="light"] .testimonials .subtitle {
-  color: var(--color-white) !important;
+/* Testimonial card styling in light mode - match certifications */
+[data-theme="light"] .testimonial__card {
+  background: var(--light-card-bg);
+  border: 2px solid var(--light-card-border);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="light"] .testimonial__card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--light-primary) 0%, var(--light-primary-hover) 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+[data-theme="light"] .testimonial__card:hover {
+  border-color: var(--light-primary);
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-8px);
+}
+
+[data-theme="light"] .testimonial__card:hover::after {
+  transform: scaleX(1);
+}
+
+/* Testimonial card text colors in light mode */
+[data-theme="light"] .testimonial__name {
+  color: var(--light-primary) !important;
+  font-weight: 700;
+}
+
+[data-theme="light"] .testimonial__text,
+[data-theme="light"] .testimonial__company {
+  color: #000000 !important;
+}
+
+[data-theme="light"] .testimonial__card p,
+[data-theme="light"] .testimonial__card * {
+  color: #000000 !important;
+}
+
+[data-theme="light"] .testimonial__card .testimonial__name {
+  color: var(--light-primary) !important;
 }
 
 /* Testimonials section description text override for black text */
@@ -2680,23 +2934,45 @@ p {
   color: var(--light-text) !important;
 }
 
-/* Get In Touch section - turn all form text to white on dark backgrounds */
-[data-theme="light"] .contact .form__label,
+/* Get In Touch form styling in light mode */
+[data-theme="light"] .contact .form,
+[data-theme="light"] .contact__form {
+  background: var(--light-card-bg);
+  border: 2px solid var(--light-card-border);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Form label colors in light mode */
+[data-theme="light"] .contact .form__label {
+  color: var(--light-primary) !important;
+  font-weight: 600;
+}
+
+/* Form input styling in light mode */
 [data-theme="light"] .contact .form-control,
-[data-theme="light"] .contact .form__group,
-[data-theme="light"] .contact .form__input,
-[data-theme="light"] .contact .form__textarea,
-[data-theme="light"] .contact .form__select,
 [data-theme="light"] .contact input,
 [data-theme="light"] .contact textarea,
-[data-theme="light"] .contact select,
-[data-theme="light"] .contact .btn,
-[data-theme="light"] .contact .contact__form,
-[data-theme="light"] .contact .contact__form p,
-[data-theme="light"] .contact .contact__form label,
-[data-theme="light"] .contact .contact__form input::placeholder,
-[data-theme="light"] .contact .contact__form textarea::placeholder {
-  color: var(--color-white) !important;
+[data-theme="light"] .contact select {
+  background: #ffffff;
+  border: 2px solid var(--light-card-border);
+  color: #000000 !important;
+}
+
+[data-theme="light"] .contact .form-control:focus,
+[data-theme="light"] .contact input:focus,
+[data-theme="light"] .contact textarea:focus,
+[data-theme="light"] .contact select:focus {
+  border-color: var(--light-primary);
+  outline: none;
+}
+
+/* Placeholder text in light mode */
+[data-theme="light"] .contact .form-control::placeholder,
+[data-theme="light"] .contact input::placeholder,
+[data-theme="light"] .contact textarea::placeholder {
+  color: #6c757d !important;
 }
 
 /* Get In Touch section description to be black in light mode */
@@ -3088,16 +3364,16 @@ p {
 }
 
 [data-theme="light"] .certification__title {
-  color: var(--light-text);
+  color: var(--light-primary) !important;
   font-weight: 700;
-  background: linear-gradient(135deg, var(--light-text) 0%, var(--light-primary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
 }
 
 [data-theme="light"] .certification__description {
-  color: var(--light-text-secondary);
+  color: #000000 !important;
   font-weight: 500;
 }
 
