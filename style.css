@@ -2531,7 +2531,15 @@ p {
 }
 
 [data-theme="light"] .footer__contact p {
-  color: #000000;
+  color: #000000 !important;
+}
+
+/* Footer text to be black in light mode */
+[data-theme="light"] .footer__description,
+[data-theme="light"] .footer__contact p,
+[data-theme="light"] .footer__copyright p,
+[data-theme="light"] .footer__website p {
+  color: #000000 !important;
 }
 
 /* Additional light mode text overrides for all grey text */
@@ -2620,6 +2628,11 @@ p {
   color: var(--color-white) !important;
 }
 
+/* Featured Projects section description to be black in light mode */
+[data-theme="light"] .projects .section__description {
+  color: #000000 !important;
+}
+
 /* Our Team section - turn grey text to white on dark backgrounds */
 [data-theme="light"] .team .team__card,
 [data-theme="light"] .team .team__name,
@@ -2684,6 +2697,17 @@ p {
 [data-theme="light"] .contact .contact__form input::placeholder,
 [data-theme="light"] .contact .contact__form textarea::placeholder {
   color: var(--color-white) !important;
+}
+
+/* Get In Touch section description to be black in light mode */
+[data-theme="light"] .contact .section__description {
+  color: #000000 !important;
+}
+
+/* Get In Touch contact info text to be black in light mode */
+[data-theme="light"] .contact .contact__details p,
+[data-theme="light"] .contact .contact__details {
+  color: #000000 !important;
 }
 
 /* ===== THEME TOGGLE BUTTON ===== */
