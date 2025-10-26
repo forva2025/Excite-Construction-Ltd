@@ -249,11 +249,35 @@ function initTestimonialsSlider() {
     showSlide(0);
 }
 
-// Contact form handling
+// Contact form handling with EmailJS
 function initContactForm() {
     const contactForm = document.getElementById('contact-form');
     
     if (contactForm) {
+        // Initialize EmailJS
+        const serviceId = contactForm.getAttribute('data-service-id');
+        const ownerTemplateId = contactForm.getAttribute('data-owner-template-id');
+        const customerTemplateId = contactForm.getAttribute('data-customer-template-id');
+        const publicKey = contactForm.getAttribute('data-public-key');
+        
+        // Check if EmailJS credentials are configured
+        if (serviceId === 'YOUR_SERVICE_ID' || ownerTemplateId === 'YOUR_TEMPLATE_ID' || customerTemplateId === 'YOUR_TEMPLATE_ID' || publicKey === 'YOUR_PUBLIC_KEY') {
+            console.warn('EmailJS credentials not configured. Please update the form data attributes with your actual EmailJS credentials.');
+            showNotification('Contact form is not configured. Please contact the website administrator.', 'error');
+            return;
+        }
+        
+        // Debug: Log EmailJS configuration
+        console.log('EmailJS Configuration:', {
+            serviceId: serviceId,
+            ownerTemplateId: ownerTemplateId,
+            customerTemplateId: customerTemplateId,
+            publicKey: publicKey ? publicKey.substring(0, 10) + '...' : 'Not set'
+        });
+        
+        // Initialize EmailJS
+        emailjs.init(publicKey);
+        
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -261,7 +285,6 @@ function initContactForm() {
             const formData = new FormData(this);
             const data = Object.fromEntries(formData);
             
-            // Simulate form submission
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             
@@ -269,17 +292,36 @@ function initContactForm() {
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
             
-            // Simulate API call
-            setTimeout(() => {
+            // Prepare email data
+            const emailData = {
+                from_name: data.name,
+                from_email: data.email,
+                phone: data.phone,
+                project_type: data['project-type'],
+                message: data.message,
+                reply_to: data.email,
+                current_date: new Date().toLocaleDateString(),
+                current_time: new Date().toLocaleTimeString()
+            };
+            
+            // Send both emails simultaneously
+            const ownerEmailPromise = emailjs.send(serviceId, ownerTemplateId, emailData);
+            const customerEmailPromise = emailjs.send(serviceId, customerTemplateId, emailData);
+            
+            // Wait for both emails to be sent
+            Promise.all([ownerEmailPromise, customerEmailPromise])
+            .then(function(responses) {
+                console.log('Both emails sent successfully:', responses);
+                
                 // Success state
                 submitBtn.textContent = 'Message Sent!';
                 submitBtn.style.background = '#27AE60';
                 
                 // Show success message
-                showNotification('Thank you! Your message has been sent successfully.', 'success');
+                showNotification('Thank you! Your message has been sent successfully. You will receive a confirmation email shortly.', 'success');
                 
                 // Reset form
-                this.reset();
+                contactForm.reset();
                 
                 // Reset button
                 setTimeout(() => {
@@ -288,7 +330,37 @@ function initContactForm() {
                     submitBtn.style.background = '';
                 }, 3000);
                 
-            }, 2000);
+            }, function(error) {
+                // Error state
+                console.error('EmailJS Error Details:', {
+                    status: error.status,
+                    text: error.text,
+                    fullError: error
+                });
+                
+                submitBtn.textContent = 'Send Failed';
+                submitBtn.style.background = '#E74C3C';
+                
+                // Show specific error message based on error type
+                let errorMessage = 'Sorry, there was an error sending your message. Please try again or contact us directly.';
+                
+                if (error.status === 422) {
+                    errorMessage = 'Email configuration error. Please check that the email template is properly set up with a recipient address.';
+                } else if (error.status === 400) {
+                    errorMessage = 'Invalid email configuration. Please check your EmailJS setup.';
+                } else if (error.status === 401) {
+                    errorMessage = 'Email service authentication failed. Please check your EmailJS credentials.';
+                }
+                
+                showNotification(errorMessage, 'error');
+                
+                // Reset button
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.background = '';
+                }, 3000);
+            });
         });
     }
 
