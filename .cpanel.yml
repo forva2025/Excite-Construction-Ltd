@@ -2,44 +2,13 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home1/exciteconstruct/public_html/
-    - echo "Starting deployment to $DEPLOYPATH"
-    - echo "Testing deployment path..."
-    - ls -la $DEPLOYPATH
-    - echo "Current directory contents:"
-    - pwd
-    - ls -la
     - /bin/cp index.html $DEPLOYPATH
     - /bin/cp style.css $DEPLOYPATH
     - /bin/cp app.js $DEPLOYPATH
-    - /bin/cp "excite black.jfif" $DEPLOYPATH
-    - /bin/cp "excite yello bg.png" $DEPLOYPATH
-    - /bin/cp "excite logo.jfif" $DEPLOYPATH
-    - /bin/cp "excite construction limited final logo.pdf" $DEPLOYPATH
-    - /bin/cp "excite_black-removebg-preview.png" $DEPLOYPATH
-    - /bin/cp "excite white  bg.png" $DEPLOYPATH
-    - /bin/cp "bagnrd.jpg" $DEPLOYPATH
     - /bin/cp robots.txt $DEPLOYPATH
     - /bin/cp sitemap.xml $DEPLOYPATH
     - /bin/cp site.webmanifest $DEPLOYPATH
-    - /bin/cp LICENSE $DEPLOYPATH
-    - /bin/cp README.md $DEPLOYPATH
-    - echo "Creating error pages..."
-    - echo '<!DOCTYPE html><html><head><title>Page Not Found - Excite Construction Ltd</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head><body><h1>404 - Page Not Found</h1><p>The page you are looking for does not exist.</p><a href="/">Return to Home</a></body></html>' > $DEPLOYPATH/404.shtml
-    - echo '<!DOCTYPE html><html><head><title>Access Denied - Excite Construction Ltd</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head><body><h1>403 - Access Denied</h1><p>You do not have permission to access this resource.</p><a href="/">Return to Home</a></body></html>' > $DEPLOYPATH/403.shtml
-    - echo "Ensuring no .htaccess files exist..."
-    - rm -f $DEPLOYPATH/.htaccess
-    - rm -f $DEPLOYPATH/.htaccess*
-    - rm -f $DEPLOYPATH/**/.htaccess
-    - echo "No .htaccess files will be created to avoid permission issues"
-    - chmod 644 $DEPLOYPATH/*.html
-    - chmod 644 $DEPLOYPATH/*.css
-    - chmod 644 $DEPLOYPATH/*.js
-    - chmod 644 $DEPLOYPATH/*.png
-    - chmod 644 $DEPLOYPATH/*.jpg
-    - chmod 644 $DEPLOYPATH/*.jfif
-    - chmod 644 $DEPLOYPATH/*.pdf
-    - chmod 644 $DEPLOYPATH/*.txt
-    - chmod 644 $DEPLOYPATH/*.xml
-    - chmod 644 $DEPLOYPATH/*.yml
-    - echo "Deployment completed successfully"
-    - DirectoryIndex index.html
+    - /bin/cp *.png $DEPLOYPATH
+    - /bin/cp *.jpg $DEPLOYPATH
+    - /bin/cp *.jfif $DEPLOYPATH
+    - /bin/cp *.pdf $DEPLOYPATH
