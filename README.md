@@ -1,4 +1,5 @@
-!https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROR5yJBL69oo3l2v6aDeL5NTFrpm2fII-RQ0V5vT4Jtg&s=10
+<img width="483" height="236" alt="image" src="https://github.com/user-attachments/assets/dde8abbf-b822-4bf1-9422-9d29e29dcd58" />
+
 # Excite Construction Ltd - Company Website
 
 A modern, responsive website for Excite Construction Limited, a leading construction company in Uganda specializing in civil construction and building projects since 2014.
